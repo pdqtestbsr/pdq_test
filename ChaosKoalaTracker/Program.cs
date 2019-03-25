@@ -178,7 +178,7 @@ namespace ChaosKoalaTracker
             {
                 MasterDictionaryOfFiles.Add(Path.GetFileName(FileName).ToUpper(), StateInfo);
             }
-            Notify($"Added: \"{Path.GetFileName(StateInfo.FileName)}\"");
+            Notify($"{"Added:",-8} \"{Path.GetFileName(StateInfo.FileName)}\"");
         }
 
         /// <summary>
@@ -196,7 +196,7 @@ namespace ChaosKoalaTracker
                 MasterDictionaryOfFiles[Path.GetFileName(FileName).ToUpper()] = StateInfo;
             }
             string alteration = (lineDiff == 0) ? "Same amount of lines in" : (lineDiff > 0) ? $"{lineDiff} lines added to" : $"{Math.Abs(lineDiff)} lines removed from";
-            Notify($"Altered: \"{Path.GetFileName(StateInfo.FileName)}\" :: {alteration} new file.");
+            Notify($"{"Altered:",-8} \"{Path.GetFileName(StateInfo.FileName)}\" :: {alteration} new file.");
         }
 
         /// <summary>
@@ -210,7 +210,7 @@ namespace ChaosKoalaTracker
             {
                 MasterDictionaryOfFiles.Remove(FileName.ToUpper());
             }
-            Notify($"Removed: \"{Path.GetFileName(StateInfo.FileName)}\"");
+            Notify($"{"Removed:",-8} \"{Path.GetFileName(StateInfo.FileName)}\"");
         }
 
         /// <summary>
@@ -227,7 +227,7 @@ namespace ChaosKoalaTracker
             }
             foreach(var kvp in MasterDictionaryOfFiles)
             {
-                Notify($"Found File: \"{kvp.Key}\"");
+                Notify($"Found File: \"{Path.GetFileName(kvp.Value.FileName)}\"");
             }
         }
 
